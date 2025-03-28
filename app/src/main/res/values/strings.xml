@@ -1,3 +1,52 @@
 <resources>
     <string name="app_name">Fiction</string>
+
+    <string name="topics">Topics</string>
+
+    <string name="culture_and_society">Culture &amp; Society</string>
+    <string name="mind_and_philosophy">Mind &amp; Philosophy</string>
+    <string name="personal_growth">Personal growth</string>
+
+    <string name="favorites_list">Favorites List</string>
+
+    <string name="about_this_book">About this book</string>
+    <string name="what_will_you_learn_from_this_book">What will you learn from this book?</string>
+
+    <string name="name_1">The good guy</string>
+    <string name="author_1">Mark Mcallister</string>
+    <string name="book_description_1">"The Good Guy" by Mark McAlister is a story about an ordinary person who finds himself
+        caught in a whirlwind of criminal events. As his world crumbles, he is forced to confront the dark sides of society and his own morality.
+        He must seek answers to complex questions about good and evil, justice and revenge.
+        His journey is not only a struggle against external forces, but also an internal transformation,
+        where he discovers new facets of his personality and rethinks his place in the world.
+    </string>
+
+    <string name="name_2">Norse Mythology</string>
+    <string name="author_2">Neil Gaiman</string>
+    <string name="book_description_2">The great Norse myths, which have inspired so much of modern fiction,
+        are dazzlingly retold by Neil Gaiman. Tales of dwarfs and frost giants, of treasure and magic, and of Asgard,
+        home to the gods: Odin the all-father, highest and oldest of the Aesir; his mighty son Thor,
+        whose hammer Mjollnir makes the mountain giants tremble; Loki, wily and handsome, reliably unreliable in his lusts;
+        and Freya, more beautiful than the sun or the moon, who spurns those who seek to control her.
+    </string>
+
+    <string name="name_3">Futurama</string>
+    <string name="author_3">Michael Douglas</string>
+    <string name="book_description_3">"Futurama: Upgrade Your Brain Without Breaking Your Mind" is a captivating science
+        fiction adventure that transports readers into a wondrous world of the future. In this world, where technology has
+        reached incredible heights and interplanetary travel has become commonplace, the protagonist embarks on a quest for
+        a mysterious technology capable of enhancing the human mind. But along the way, he encounters dangerous trials,
+        incredible creatures, and philosophical questions about the nature of consciousness and the limits of human potential.
+        Will he be able to unravel the secret of brain upgrades without losing himself?
+    </string>
+
+    <string name="name_4">Explore Your Creativity</string>
+    <string name="author_4">Colby Sharp</string>
+    <string name="book_description_4">"Unlock Your Creative Mind to Positivity: A Habit That Will Transform Your Life"
+        is an inspiring and practical guide to unlocking your creative potential and harnessing it for positive change.
+        Colby Sharp, a renowned author and educator, shares simple yet powerful techniques to cultivate creative thinking,
+        overcome creative blocks, and leverage creativity for emotional well-being. The book explores the profound connection
+        between creativity and positive mindset, demonstrating how creative expression can alleviate stress, boost self-esteem,
+        and foster greater life satisfaction.
+    </string>
 </resources>
