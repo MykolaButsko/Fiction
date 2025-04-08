@@ -49,4 +49,7 @@
         between creativity and positive mindset, demonstrating how creative expression can alleviate stress, boost self-esteem,
         and foster greater life satisfaction.
     </string>
+
+    <string name="home_bottom_navigation">Home</string>
+    <string name="library_bottom_navigation">Library</string>
 </resources>
