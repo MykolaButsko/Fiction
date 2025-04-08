@@ -1,6 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/topics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/mulish_bold"
+        android:text="@string/topics"
+        android:textColorHint="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonFiction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/mulish_regular"
+        android:hint="@string/app_name"
+        android:textColorHint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topics" />
+
+    <Button
+        android:id="@+id/buttonCultureAndSociety"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/mulish_regular"
+        android:hint="@string/culture_and_society"
+        android:textColorHint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonFiction"
+        app:layout_constraintStart_toEndOf="@+id/buttonFiction"
+        app:layout_constraintTop_toTopOf="@+id/buttonFiction" />
+
+    <Button
+        android:id="@+id/buttonMindAndPhilosophy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="7dp"
+        android:fontFamily="@font/mulish_regular"
+        android:hint="@string/mind_and_philosophy"
+        android:textColorHint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonFiction" />
+
+    <Button
+        android:id="@+id/buttonPersonalGrowth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/mulish_regular"
+        android:hint="@string/personal_growth"
+        android:textColorHint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonMindAndPhilosophy"
+        app:layout_constraintStart_toEndOf="@+id/buttonMindAndPhilosophy"
+        app:layout_constraintTop_toTopOf="@+id/buttonMindAndPhilosophy" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
