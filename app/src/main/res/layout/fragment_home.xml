@@ -26,6 +26,7 @@
         android:fontFamily="@font/mulish_regular"
         android:hint="@string/app_name"
         android:textColorHint="@color/white"
+        android:backgroundTint="@color/selector_button_colors"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topics" />
 
@@ -37,6 +38,7 @@
         android:fontFamily="@font/mulish_regular"
         android:hint="@string/culture_and_society"
         android:textColorHint="@color/white"
+        android:backgroundTint="@color/selector_button_colors"
         app:layout_constraintBottom_toBottomOf="@+id/buttonFiction"
         app:layout_constraintStart_toEndOf="@+id/buttonFiction"
         app:layout_constraintTop_toTopOf="@+id/buttonFiction" />
@@ -50,6 +52,7 @@
         android:fontFamily="@font/mulish_regular"
         android:hint="@string/mind_and_philosophy"
         android:textColorHint="@color/white"
+        android:backgroundTint="@color/selector_button_colors"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonFiction" />
 
@@ -57,12 +60,12 @@
         android:id="@+id/buttonPersonalGrowth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginTop="7dp"
+        android:backgroundTint="@color/selector_button_colors"
         android:fontFamily="@font/mulish_regular"
         android:hint="@string/personal_growth"
         android:textColorHint="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonMindAndPhilosophy"
-        app:layout_constraintStart_toEndOf="@+id/buttonMindAndPhilosophy"
-        app:layout_constraintTop_toTopOf="@+id/buttonMindAndPhilosophy" />
+        app:layout_constraintStart_toStartOf="@+id/buttonMindAndPhilosophy"
+        app:layout_constraintTop_toBottomOf="@+id/buttonMindAndPhilosophy" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
