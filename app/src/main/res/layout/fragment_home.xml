@@ -75,6 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/mulish_bold"
+        android:importantForAccessibility="no"
         android:text="@string/app_name"
         android:textSize="33sp"
         app:layout_constraintStart_toStartOf="@+id/buttonPersonalGrowth"
