@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/topics"
@@ -24,10 +24,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
+        android:backgroundTint="@color/selector_button_colors"
         android:fontFamily="@font/mulish_regular"
         android:hint="@string/app_name"
         android:textColorHint="@color/white"
-        android:backgroundTint="@color/selector_button_colors"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topics" />
 
@@ -36,10 +36,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
+        android:backgroundTint="@color/selector_button_colors"
         android:fontFamily="@font/mulish_regular"
         android:hint="@string/culture_and_society"
         android:textColorHint="@color/white"
-        android:backgroundTint="@color/selector_button_colors"
         app:layout_constraintBottom_toBottomOf="@+id/buttonFiction"
         app:layout_constraintStart_toEndOf="@+id/buttonFiction"
         app:layout_constraintTop_toTopOf="@+id/buttonFiction" />
@@ -50,10 +50,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="7dp"
+        android:backgroundTint="@color/selector_button_colors"
         android:fontFamily="@font/mulish_regular"
         android:hint="@string/mind_and_philosophy"
         android:textColorHint="@color/white"
-        android:backgroundTint="@color/selector_button_colors"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonFiction" />
 
@@ -69,6 +69,17 @@
         app:layout_constraintStart_toStartOf="@+id/buttonMindAndPhilosophy"
         app:layout_constraintTop_toBottomOf="@+id/buttonMindAndPhilosophy" />
 
+    <TextView
+        android:id="@+id/textViewFiction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/mulish_bold"
+        android:text="@string/app_name"
+        android:textSize="33sp"
+        app:layout_constraintStart_toStartOf="@+id/buttonPersonalGrowth"
+        app:layout_constraintTop_toBottomOf="@+id/buttonPersonalGrowth" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="0dp"
@@ -80,7 +91,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonPersonalGrowth"
+        app:layout_constraintTop_toBottomOf="@+id/textViewFiction"
         tools:listitem="@layout/book_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
