@@ -1,5 +1,6 @@
 package com.example.fiction
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,13 @@ import com.example.fiction.databinding.BookItemBinding
 class BookAdapter : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
 
     private var bookList = ArrayList<Book>()
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun submitList(book: List<Book>) {
+        bookList.clear()
+        bookList.addAll(book)
+        notifyDataSetChanged()
+    }
 
     class BookViewHolder(listItem: View) : RecyclerView.ViewHolder(listItem) {
         private val binding = BookItemBinding.bind(listItem)
