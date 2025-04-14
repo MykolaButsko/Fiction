@@ -13,4 +13,9 @@ class BookViewModel(private val bookRepository: BookRepository) : ViewModel() {
     fun loadBook() {
         _bookList.value = bookRepository.getBooks()
     }
+
+    fun filterBooksByGenre(genre: String) {
+        val filteredBooks = bookRepository.getBooksByGenre(genre)
+        _bookList.value = filteredBooks
+    }
 }
