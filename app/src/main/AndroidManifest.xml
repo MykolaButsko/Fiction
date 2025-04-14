@@ -20,5 +20,10 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".BookDescriptionActivity"
+            android:exported="true">
+        </activity>
+
     </application>
 </manifest>
