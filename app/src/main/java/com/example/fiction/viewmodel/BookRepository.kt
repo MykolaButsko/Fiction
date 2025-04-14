@@ -49,4 +49,8 @@ class BookRepository(private val context: Context) {
         }
         return booksList
     }
+
+    fun getBooksByGenre(genreBook: String): List<Book> {
+        return booksList.filter { it.genre == genreBook }
+    }
 }
