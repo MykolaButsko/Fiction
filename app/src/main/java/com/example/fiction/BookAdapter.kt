@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.fiction.dataClasses.Book
 import com.example.fiction.databinding.BookItemBinding
 
-class BookAdapter : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
+class BookAdapter(
+    private val onOpenBookDescription: (Book) -> Unit
+) : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
 
     private var bookList = ArrayList<Book>()
 
@@ -22,11 +24,15 @@ class BookAdapter : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
     class BookViewHolder(listItem: View) : RecyclerView.ViewHolder(listItem) {
         private val binding = BookItemBinding.bind(listItem)
 
-        fun bind(book: Book) = with(binding) {
+        fun bind(book: Book, onOpenBookDescription: (Book) -> Unit) = with(binding) {
             image1.setImageResource(book.img)
             like.isChecked
             bookName1.text = book.bookName
             bookAuthor1.text = book.bookAuthor
+
+            image1.setOnClickListener {
+                onOpenBookDescription(book)
+            }
         }
     }
 
@@ -38,7 +44,7 @@ class BookAdapter : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
-        holder.bind(bookList[position])
+        holder.bind(bookList[position], onOpenBookDescription)
     }
 
     override fun getItemCount(): Int {
