@@ -1,5 +1,6 @@
 package com.example.fiction.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.fiction.BookAdapter
+import com.example.fiction.BookDescriptionActivity
 import com.example.fiction.R
 import com.example.fiction.databinding.FragmentHomeBinding
 import com.example.fiction.viewmodel.BookViewModel
@@ -36,7 +38,16 @@ class HomeFragment : Fragment() {
     }
 
     private fun init() {
-        bookAdapter = BookAdapter()
+
+        bookAdapter = BookAdapter(
+
+            onOpenBookDescription = { book ->
+                val intent = Intent(requireContext(), BookDescriptionActivity::class.java).apply {
+                    putExtra("BOOK_NAME", book.bookName)
+                }
+                startActivity(intent)
+            }
+        )
 
         homeBinding.recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         homeBinding.recyclerView.adapter = bookAdapter
