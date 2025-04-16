@@ -19,10 +19,14 @@ class BookDescriptionFragment : Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
         bookDescriptionBinding = FragmentBookDescriptionBinding.inflate(layoutInflater)
 
+        getBooksDescription()
+
         return bookDescriptionBinding.root
     }
 
     private fun getBooksDescription() {
+
+        val bookNameID = arguments?.getString("BOOK_NAME")
 
         val booksDescription = listOf(
             BookDescription(
@@ -54,5 +58,16 @@ class BookDescriptionFragment : Fragment() {
                 getString(R.string.book_description_4)
             )
         )
+        val selectedBook = booksDescription.find {
+            it.bookName == bookNameID
+        }
+
+        if (selectedBook != null) with(bookDescriptionBinding) {
+            image1.setImageResource(selectedBook.img)
+            bookName1.text = selectedBook.bookName
+            bookAuthor1.text = selectedBook.bookAuthor
+            aboutBook.text = selectedBook.aboutBook
+            bookDescription1.text = selectedBook.bookDescription
+        }
     }
 }
