@@ -18,4 +18,17 @@ class BookViewModel(private val bookRepository: BookRepository) : ViewModel() {
         val filteredBooks = bookRepository.getBooksByGenre(genre)
         _bookList.value = filteredBooks
     }
+
+    private val _favoriteListID = MutableLiveData<MutableSet<Int>>(mutableSetOf())
+    val favoriteListID: LiveData<MutableSet<Int>> get() = _favoriteListID
+
+    fun isLiked(bookID: Int) {
+        val currentFavorite = _favoriteListID.value ?: mutableSetOf()
+        if (currentFavorite.contains(bookID)) {
+            currentFavorite.remove(bookID)
+        } else {
+            currentFavorite.add(bookID)
+        }
+        _favoriteListID.value = currentFavorite
+    }
 }
