@@ -13,11 +13,11 @@
 
     <string name="name_1">The good guy</string>
     <string name="author_1">Mark Mcallister</string>
-    <string name="book_description_1">"The Good Guy" by Mark Mcallister is a story about an ordinary person who finds himself
-        caught in a whirlwind of criminal events. As his world crumbles, he is forced to confront the dark sides of society and his own morality.
-        He must seek answers to complex questions about good and evil, justice and revenge.
-        His journey is not only a struggle against external forces, but also an internal transformation,
-        where he discovers new facets of his personality and rethinks his place in the world.
+    <string name="book_description_1">"The Good Guy" by Mark McAllister is a story about an ordinary man who finds himself
+        caught in a whirlwind of criminal events. As his world begins to collapse, he is forced to confront the darker sides
+        of society — and of himself. He must seek answers to complex questions about good and evil, justice and revenge.
+        His journey becomes not only a battle against external forces, but also an inner transformation, where he uncovers
+        new facets of his character and reconsiders his place in the world.
     </string>
 
     <string name="name_2">Norse Mythology</string>
@@ -31,17 +31,17 @@
 
     <string name="name_3">Futurama</string>
     <string name="author_3">Michael Douglas</string>
-    <string name="book_description_3">"Futurama: Upgrade Your Brain Without Breaking Your Mind" is a captivating science
-        fiction adventure that transports readers into a wondrous world of the future. In this world, where technology has
-        reached incredible heights and interplanetary travel has become commonplace, the protagonist embarks on a quest for
-        a mysterious technology capable of enhancing the human mind. But along the way, he encounters dangerous trials,
-        incredible creatures, and philosophical questions about the nature of consciousness and the limits of human potential.
-        Will he be able to unravel the secret of brain upgrades without losing himself?
+    <string name="book_description_3">"Futurama: Upgrade Your Brain Without Breaking Your Mind" is a gripping science
+        fiction adventure that transports readers to a mesmerizing future world. In this era, where technology has reached
+        astonishing heights and interplanetary travel is the norm, the protagonist sets out in search of a mysterious
+        innovation capable of enhancing the human mind. Along the way, he faces perilous trials, encounters extraordinary creatures,
+        and grapples with profound questions about consciousness and the boundaries of human potential.
+        Will he unlock the secret of upgrading the brain — without losing himself in the process?
     </string>
 
-    <string name="name_4">Explore Your Creativity</string>
+    <string name="name_4">Explore Your Creative</string>
     <string name="author_4">Colby Sharp</string>
-    <string name="book_description_4">"Unlock Your Creative Mind to Positivity: A Habit That Will Transform Your Life"
+    <string name="book_description_4">"Explore Your Creative Mind to Positivity: A Habit That Will Transform Your Life"
         is an inspiring and practical guide to unlocking your creative potential and harnessing it for positive change.
         Colby Sharp, a renowned author and educator, shares simple yet powerful techniques to cultivate creative thinking,
         overcome creative blocks, and leverage creativity for emotional well-being. The book explores the profound connection
