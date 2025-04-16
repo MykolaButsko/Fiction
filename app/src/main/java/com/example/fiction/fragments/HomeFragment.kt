@@ -46,6 +46,10 @@ class HomeFragment : Fragment() {
                     putExtra("BOOK_NAME", book.bookName)
                 }
                 startActivity(intent)
+            },
+
+            onFavoriteToggle = { bookID ->
+                bookViewModel.isLiked(bookID)
             }
         )
 
