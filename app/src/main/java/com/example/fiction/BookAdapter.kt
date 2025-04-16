@@ -9,7 +9,8 @@ import com.example.fiction.dataClasses.Book
 import com.example.fiction.databinding.BookItemBinding
 
 class BookAdapter(
-    private val onOpenBookDescription: (Book) -> Unit
+    private val onOpenBookDescription: (Book) -> Unit,
+    private val onFavoriteToggle: (Int) -> Unit
 ) : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
 
     private var bookList = ArrayList<Book>()
@@ -24,7 +25,12 @@ class BookAdapter(
     class BookViewHolder(listItem: View) : RecyclerView.ViewHolder(listItem) {
         private val binding = BookItemBinding.bind(listItem)
 
-        fun bind(book: Book, onOpenBookDescription: (Book) -> Unit) = with(binding) {
+        fun bind(
+            book: Book,
+            onOpenBookDescription: (Book) -> Unit,
+            onFavoriteToggle: (Int) -> Unit
+        ) = with(binding) {
+
             image1.setImageResource(book.img)
             like.isChecked
             bookName1.text = book.bookName
@@ -32,6 +38,10 @@ class BookAdapter(
 
             image1.setOnClickListener {
                 onOpenBookDescription(book)
+            }
+
+            like.setOnClickListener {
+                onFavoriteToggle(book.bookID)
             }
         }
     }
@@ -44,7 +54,7 @@ class BookAdapter(
     }
 
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
-        holder.bind(bookList[position], onOpenBookDescription)
+        holder.bind(bookList[position], onOpenBookDescription, onFavoriteToggle)
     }
 
     override fun getItemCount(): Int {
