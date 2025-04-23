@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.viewbinding.ViewBinding
 import com.example.fiction.BookAdapter
 import com.example.fiction.BookDescriptionActivity
@@ -17,7 +17,7 @@ abstract class BaseFragment<VBinding : ViewBinding>(
     private val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> VBinding
 ) : Fragment() {
 
-    protected val bookViewModel: BookViewModel by viewModels {
+    protected val bookViewModel: BookViewModel by activityViewModels {
         BookViewModelFactory(requireContext())
     }
 
