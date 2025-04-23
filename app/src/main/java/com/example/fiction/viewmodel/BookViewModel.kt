@@ -10,6 +10,12 @@ class BookViewModel(private val bookRepository: BookRepository) : ViewModel() {
     private val _bookList = MutableLiveData<List<Book>>()
     val bookListLiveData: LiveData<List<Book>> = _bookList
 
+    private val _favoriteListID = MutableLiveData<MutableSet<Int>>(mutableSetOf())
+    private val favoriteListID: LiveData<MutableSet<Int>> get() = _favoriteListID
+
+    private val _favListBooks = MutableLiveData<List<Book>>(emptyList())
+    val favListBooks: LiveData<List<Book>> = _favListBooks
+
     fun loadBook() {
         _bookList.value = bookRepository.getBooks()
     }
@@ -19,9 +25,6 @@ class BookViewModel(private val bookRepository: BookRepository) : ViewModel() {
         _bookList.value = filteredBooks
     }
 
-    private val _favoriteListID = MutableLiveData<MutableSet<Int>>(mutableSetOf())
-    val favoriteListID: LiveData<MutableSet<Int>> get() = _favoriteListID
-
     fun isLiked(bookID: Int) {
         val currentFavorite = _favoriteListID.value ?: mutableSetOf()
         if (currentFavorite.contains(bookID)) {
@@ -30,5 +33,18 @@ class BookViewModel(private val bookRepository: BookRepository) : ViewModel() {
             currentFavorite.add(bookID)
         }
         _favoriteListID.value = currentFavorite
+        likeBook(bookID)
+        filterFavBooks()
+    }
+
+    private fun likeBook(bookID: Int) {
+        _bookList.value = _bookList.value!!.map { book ->
+            if (book.bookID == bookID) book.copy(likeBook = book.likeBook) else book
+        }
+    }
+
+    private fun filterFavBooks() {
+        _favListBooks.value =
+            bookListLiveData.value!!.filter { it.bookID in favoriteListID.value!! }
     }
 }
