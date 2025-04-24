@@ -39,7 +39,7 @@ class BookViewModel(private val bookRepository: BookRepository) : ViewModel() {
 
     private fun likeBook(bookID: Int) {
         _bookList.value = _bookList.value!!.map { book ->
-            if (book.bookID == bookID) book.copy(likeBook = book.likeBook) else book
+            if (book.bookID == bookID) book.copy(toggleFavorite = book.toggleFavorite) else book
         }
     }
 
