@@ -32,7 +32,7 @@ class BookAdapter(
         ) = with(binding) {
 
             image1.setImageResource(book.img)
-            like.isChecked
+            favoriteIcon
             bookName1.text = book.bookName
             bookAuthor1.text = book.bookAuthor
 
@@ -40,7 +40,7 @@ class BookAdapter(
                 onOpenBookDescription(book)
             }
 
-            like.setOnClickListener {
+            favoriteIcon.setOnClickListener {
                 onFavoriteToggle(book.bookID)
             }
         }
