@@ -37,11 +37,15 @@
         app:layout_constraintStart_toStartOf="@+id/bookName_1"
         app:layout_constraintTop_toBottomOf="@+id/bookName_1" />
 
-    <CheckBox
-        android:id="@+id/like"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:button="@drawable/selector_like"
+    <ImageView
+        android:id="@+id/favoriteIcon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="7dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:importantForAccessibility="no"
+        android:src="@drawable/like_empty"
         app:layout_constraintStart_toStartOf="@+id/bookAuthor_1"
         app:layout_constraintTop_toBottomOf="@+id/bookAuthor_1" />
 
