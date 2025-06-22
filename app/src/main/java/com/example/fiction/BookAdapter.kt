@@ -32,7 +32,15 @@ class BookAdapter(
         ) = with(binding) {
 
             image1.setImageResource(book.img)
-            favoriteIcon
+
+            val icon = if (book.toggleFavorite) {
+                R.drawable.like_filled
+            } else {
+                R.drawable.like_empty
+            }
+
+            favoriteIcon.setImageResource(icon)
+
             bookName1.text = book.bookName
             bookAuthor1.text = book.bookAuthor
 
