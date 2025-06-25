@@ -53,4 +53,12 @@ class BookRepository(private val context: Context) {
     fun getBooksByGenre(genreBook: String): List<Book> {
         return booksList.filter { it.genre == genreBook }
     }
+
+    fun updateFavoriteBook(bookID: Int, isFavorite: Boolean) {
+        val index = booksList.indexOfFirst { it.bookID == bookID }
+        if (index != -1) {
+            val updatedBook = booksList[index].copy(toggleFavorite = isFavorite)
+            booksList[index] = updatedBook
+        }
+    }
 }
