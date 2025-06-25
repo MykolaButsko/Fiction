@@ -17,8 +17,6 @@ class BookAdapter(
 
     @SuppressLint("NotifyDataSetChanged")
     fun submitList(book: List<Book>) {
-        bookList.clear()
-        bookList.addAll(book)
         bookList = ArrayList(book)
         notifyDataSetChanged()
     }
