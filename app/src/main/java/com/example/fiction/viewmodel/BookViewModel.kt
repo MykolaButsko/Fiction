@@ -38,9 +38,13 @@ class BookViewModel(private val bookRepository: BookRepository) : ViewModel() {
     }
 
     private fun likeBook(bookID: Int) {
-        _bookList.value = _bookList.value!!.map { book ->
-            if (book.bookID == bookID) book.copy(toggleFavorite = !book.toggleFavorite) else book
-        }
+        val currentList = _bookList.value ?: return
+        val isCurrentlyFavorite = currentList.first { it.bookID == bookID }.toggleFavorite
+        val newState = !isCurrentlyFavorite
+
+        bookRepository.updateFavoriteBook(bookID, newState)
+
+        _bookList.value = bookRepository.getBooks()
     }
 
     private fun filterFavBooks() {
