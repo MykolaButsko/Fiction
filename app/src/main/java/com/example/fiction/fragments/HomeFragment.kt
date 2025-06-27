@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.fiction.R
 import com.example.fiction.databinding.FragmentHomeBinding
@@ -39,25 +41,55 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
         }
     }
 
+    private var activeButton: Button? = null
+
     private fun chooseGenreBook() = with(binding) {
-        buttonFiction.setOnClickListener {
-            bookViewModel.loadBook()
-            textViewFiction.text = (getString(R.string.app_name))
+
+        val allButtons = listOf(
+            binding.buttonFiction,
+            binding.buttonCultureAndSociety,
+            binding.buttonMindAndPhilosophy,
+            binding.buttonPersonalGrowth
+        )
+
+        allButtons.forEach { button ->
+            button.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.gray))
         }
 
-        buttonCultureAndSociety.setOnClickListener {
-            bookViewModel.filterBooksByGenre(getString(R.string.culture_and_society))
-            textViewFiction.text = (getString(R.string.culture_and_society))
-        }
+        allButtons.forEach { button ->
+            button.setOnClickListener {
+                setActiveButton(button)
+                when (button) {
+                    buttonFiction -> {
+                        bookViewModel.loadBook()
+                        textViewFiction.text = (getString(R.string.app_name))
+                    }
 
-        buttonMindAndPhilosophy.setOnClickListener {
-            bookViewModel.filterBooksByGenre(getString(R.string.mind_and_philosophy))
-            textViewFiction.text = (getString(R.string.mind_and_philosophy))
-        }
+                    buttonCultureAndSociety -> {
+                        bookViewModel.filterBooksByGenre(getString(R.string.culture_and_society))
+                        textViewFiction.text = (getString(R.string.culture_and_society))
+                    }
 
-        buttonPersonalGrowth.setOnClickListener {
-            bookViewModel.filterBooksByGenre(getString(R.string.personal_growth))
-            textViewFiction.text = (getString(R.string.personal_growth))
+                    buttonMindAndPhilosophy -> {
+                        bookViewModel.filterBooksByGenre(getString(R.string.mind_and_philosophy))
+                        textViewFiction.text = (getString(R.string.mind_and_philosophy))
+                    }
+
+                    buttonPersonalGrowth -> {
+                        bookViewModel.filterBooksByGenre(getString(R.string.personal_growth))
+                        textViewFiction.text = (getString(R.string.personal_growth))
+                    }
+                }
+            }
         }
+        setActiveButton(buttonFiction)
+    }
+
+    private fun setActiveButton(button: Button) {
+
+        activeButton?.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.gray))
+        button.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.dark_scarlet))
+
+        activeButton = button
     }
 }
