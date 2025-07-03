@@ -39,8 +39,8 @@ class BookViewModel(private val bookRepository: BookRepository) : ViewModel() {
 
     private fun likeBook(bookID: Int) {
         val currentList = _bookList.value ?: return
-        val isCurrentlyFavorite = currentList.first { it.bookID == bookID }.toggleFavorite
-        val newState = !isCurrentlyFavorite
+        val book = currentList.firstOrNull {it.bookID == bookID} ?: return
+        val newState = !book.toggleFavorite
 
         bookRepository.updateFavoriteBook(bookID, newState)
 
