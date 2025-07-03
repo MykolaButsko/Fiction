@@ -11,6 +11,10 @@ import com.example.fiction.databinding.FragmentBookDescriptionBinding
 
 class BookDescriptionFragment : Fragment() {
 
+    companion object {
+        const val ARG_BOOK_NAME = "ARG_BOOK_NAME"
+    }
+
     private lateinit var bookDescriptionBinding: FragmentBookDescriptionBinding
 
     override fun onCreateView(
@@ -26,7 +30,7 @@ class BookDescriptionFragment : Fragment() {
 
     private fun getBooksDescription() {
 
-        val bookNameID = arguments?.getString("BOOK_NAME")
+        val bookNameID = arguments?.getString(ARG_BOOK_NAME)
 
         val booksDescription = listOf(
             BookDescription(
