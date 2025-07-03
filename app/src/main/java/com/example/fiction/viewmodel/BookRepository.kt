@@ -14,7 +14,7 @@ class BookRepository(private val context: Context) {
                 listOf(
                     Book(
                         1,
-                        context.getString(R.string.app_name),
+                        context.getString(R.string.culture_and_society),
                         R.drawable.img_1,
                         false,
                         context.getString(R.string.name_1),
