@@ -1,6 +1,5 @@
 package com.example.fiction.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -41,9 +40,7 @@ abstract class BaseFragment<VBinding : ViewBinding>(
 
         bookAdapter = BookAdapter(
             onOpenBookDescription = { book ->
-                val intent = Intent(requireContext(), BookDescriptionActivity::class.java).apply {
-                    putExtra("BOOK_NAME", book.bookName)
-                }
+                val intent = BookDescriptionActivity.createIntent(requireContext(), book.bookName)
                 startActivity(intent)
             },
 
