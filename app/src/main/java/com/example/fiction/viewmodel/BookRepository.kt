@@ -47,7 +47,7 @@ class BookRepository(private val context: Context) {
                 )
             )
         }
-        return booksList
+        return booksList.toList()
     }
 
     fun getBooksByGenre(genreBook: String): List<Book> {
