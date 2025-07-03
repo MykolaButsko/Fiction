@@ -24,7 +24,8 @@ abstract class BaseFragment<VBinding : ViewBinding>(
     protected lateinit var bookAdapter: BookAdapter
 
     private var _binding: VBinding? = null
-    protected val binding get() = _binding!!
+    protected val binding: VBinding
+        get() = _binding ?: throw IllegalStateException("Binding is null. View is destroyed.")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
