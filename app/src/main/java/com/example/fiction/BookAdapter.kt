@@ -1,9 +1,8 @@
 package com.example.fiction
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fiction.dataClasses.Book
 import com.example.fiction.databinding.BookItemBinding
@@ -11,24 +10,12 @@ import com.example.fiction.databinding.BookItemBinding
 class BookAdapter(
     private val onOpenBookDescription: (Book) -> Unit,
     private val onFavoriteToggle: (Int) -> Unit
-) : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
+) : ListAdapter<Book, BookAdapter.BookViewHolder>(BookDiffCallback()) {
 
-    private var bookList = ArrayList<Book>()
+    inner class BookViewHolder(private val binding: BookItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-    @SuppressLint("NotifyDataSetChanged")
-    fun submitList(book: List<Book>) {
-        bookList = ArrayList(book)
-        notifyDataSetChanged()
-    }
-
-    class BookViewHolder(listItem: View) : RecyclerView.ViewHolder(listItem) {
-        private val binding = BookItemBinding.bind(listItem)
-
-        fun bind(
-            book: Book,
-            onOpenBookDescription: (Book) -> Unit,
-            onFavoriteToggle: (Int) -> Unit
-        ) = with(binding) {
+        fun bind(book: Book) = with(binding) {
 
             image1.setImageResource(book.img)
 
@@ -54,17 +41,11 @@ class BookAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
-        val listItem = LayoutInflater
-            .from(parent.context)
-            .inflate(R.layout.book_item, parent, false)
-        return BookViewHolder(listItem)
+        val binding = BookItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return BookViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
-        holder.bind(bookList[position], onOpenBookDescription, onFavoriteToggle)
-    }
-
-    override fun getItemCount(): Int {
-        return bookList.size
+        holder.bind(getItem(position))
     }
 }
