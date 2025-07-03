@@ -48,7 +48,10 @@ class BookViewModel(private val bookRepository: BookRepository) : ViewModel() {
     }
 
     private fun filterFavBooks() {
-        _favListBooks.value =
-            bookListLiveData.value!!.filter { it.bookID in favoriteListID.value!! }
+        bookListLiveData.value?.let { allBooks ->
+            favoriteListID.value?.let { favoriteIDs ->
+                _favListBooks.value = allBooks.filter { it.bookID in favoriteIDs }
+            }
+        }
     }
 }
