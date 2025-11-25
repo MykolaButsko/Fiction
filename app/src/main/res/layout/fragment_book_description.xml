@@ -2,13 +2,15 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_marginStart="@dimen/margin_m"
+    android:layout_marginEnd="@dimen/margin_m">
 
     <ImageView
         android:id="@+id/image_1"
         android:layout_width="180dp"
         android:layout_height="260dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="@dimen/margin_xl"
         android:importantForAccessibility="no"
         android:src="@drawable/img_1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,11 +21,10 @@
         android:id="@+id/bookName_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="@dimen/margin_l"
         android:fontFamily="@font/mulish_bold"
         android:text="@string/name_1"
-        android:textSize="25sp"
+        android:textSize="@dimen/text_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_1" />
 
@@ -31,10 +32,10 @@
         android:id="@+id/bookAuthor_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="@dimen/margin_s"
         android:fontFamily="@font/mulish_regular"
         android:text="@string/author_1"
-        android:textSize="17sp"
+        android:textSize="@dimen/text_body_large"
         app:layout_constraintStart_toStartOf="@+id/bookName_1"
         app:layout_constraintTop_toBottomOf="@+id/bookName_1" />
 
@@ -42,26 +43,23 @@
         android:id="@+id/about_book"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/margin_l"
         android:fontFamily="@font/mulish_bold"
         android:text="@string/about_this_book"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_body_large"
         app:layout_constraintStart_toStartOf="@+id/bookAuthor_1"
         app:layout_constraintTop_toBottomOf="@+id/bookAuthor_1" />
 
     <TextView
         android:id="@+id/bookDescription_1"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="@dimen/margin_s"
         android:fontFamily="@font/mulish_regular"
         android:text="@string/book_description_1"
-        android:textSize="17sp"
+        android:textSize="@dimen/text_body_large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/about_book"
-        app:layout_constraintWidth_max="380dp" />
+        app:layout_constraintTop_toBottomOf="@+id/about_book" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
