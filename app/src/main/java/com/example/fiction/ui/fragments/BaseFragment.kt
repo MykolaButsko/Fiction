@@ -1,4 +1,4 @@
-package com.example.fiction.fragments
+package com.example.fiction.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.viewbinding.ViewBinding
-import com.example.fiction.BookAdapter
-import com.example.fiction.BookDescriptionActivity
+import com.example.fiction.ui.adapter.BookAdapter
+import com.example.fiction.ui.activities.BookDescriptionActivity
 import com.example.fiction.viewmodel.BookViewModel
 import com.example.fiction.viewmodel.BookViewModelFactory
 

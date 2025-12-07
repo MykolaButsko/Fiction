@@ -3,7 +3,8 @@ package com.example.fiction.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.fiction.dataClasses.Book
+import com.example.fiction.data.model.Book
+import com.example.fiction.data.repository.BookRepository
 
 class BookViewModel(private val bookRepository: BookRepository) : ViewModel() {
 

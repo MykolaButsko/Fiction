@@ -1,8 +1,8 @@
-package com.example.fiction.viewmodel
+package com.example.fiction.data.repository
 
 import android.content.Context
 import com.example.fiction.R
-import com.example.fiction.dataClasses.Book
+import com.example.fiction.data.model.Book
 
 class BookRepository(private val context: Context) {
 

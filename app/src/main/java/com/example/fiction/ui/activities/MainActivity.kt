@@ -1,11 +1,12 @@
-package com.example.fiction
+package com.example.fiction.ui.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.fiction.R
 import com.example.fiction.databinding.ActivityMainBinding
-import com.example.fiction.fragments.HomeFragment
-import com.example.fiction.fragments.LibraryFragment
+import com.example.fiction.ui.fragments.HomeFragment
+import com.example.fiction.ui.fragments.LibraryFragment
 
 class MainActivity : AppCompatActivity() {
 

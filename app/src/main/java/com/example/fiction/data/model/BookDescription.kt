@@ -1,4 +1,4 @@
-package com.example.fiction.dataClasses
+package com.example.fiction.data.model
 
 data class BookDescription(
     val img: Int,

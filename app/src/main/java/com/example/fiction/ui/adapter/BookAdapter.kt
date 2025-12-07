@@ -1,10 +1,11 @@
-package com.example.fiction
+package com.example.fiction.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.fiction.dataClasses.Book
+import com.example.fiction.R
+import com.example.fiction.data.model.Book
 import com.example.fiction.databinding.BookItemBinding
 
 class BookAdapter(

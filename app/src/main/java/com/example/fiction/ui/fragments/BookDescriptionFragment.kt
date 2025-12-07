@@ -1,4 +1,4 @@
-package com.example.fiction.fragments
+package com.example.fiction.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.fiction.R
-import com.example.fiction.dataClasses.BookDescription
+import com.example.fiction.data.model.BookDescription
 import com.example.fiction.databinding.FragmentBookDescriptionBinding
 
 class BookDescriptionFragment : Fragment() {
