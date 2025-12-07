@@ -13,4 +13,6 @@
 
     <dimen name="icon_size">24sp</dimen>
 
+    <dimen name="line_height_body">24sp</dimen>
+
 </resources>
