@@ -1,65 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginStart="@dimen/margin_m"
-    android:layout_marginEnd="@dimen/margin_m">
+    android:fillViewport="true">
 
-    <ImageView
-        android:id="@+id/image_1"
-        android:layout_width="180dp"
-        android:layout_height="260dp"
-        android:layout_marginTop="@dimen/margin_xl"
-        android:importantForAccessibility="no"
-        android:src="@drawable/img_1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/bookName_1"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_l"
-        android:fontFamily="@font/mulish_bold"
-        android:text="@string/name_1"
-        android:textSize="@dimen/text_title"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_1" />
+        android:paddingHorizontal="@dimen/margin_m"
+        android:paddingVertical="@dimen/margin_xxl">
 
-    <TextView
-        android:id="@+id/bookAuthor_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_s"
-        android:fontFamily="@font/mulish_regular"
-        android:text="@string/author_1"
-        android:textSize="@dimen/text_body_large"
-        app:layout_constraintStart_toStartOf="@+id/bookName_1"
-        app:layout_constraintTop_toBottomOf="@+id/bookName_1" />
+        <ImageView
+            android:id="@+id/image_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/cd_book"
+            android:src="@drawable/img_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/about_book"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_l"
-        android:fontFamily="@font/mulish_bold"
-        android:text="@string/about_this_book"
-        android:textSize="@dimen/text_body_large"
-        app:layout_constraintStart_toStartOf="@+id/bookAuthor_1"
-        app:layout_constraintTop_toBottomOf="@+id/bookAuthor_1" />
+        <TextView
+            android:id="@+id/bookName_1"
+            style="@style/TitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_l"
+            android:text="@string/name_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_1" />
 
-    <TextView
-        android:id="@+id/bookDescription_1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_s"
-        android:fontFamily="@font/mulish_regular"
-        android:text="@string/book_description_1"
-        android:textSize="@dimen/text_body_large"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/about_book" />
+        <TextView
+            android:id="@+id/bookAuthor_1"
+            style="@style/BodyLargeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_s"
+            android:text="@string/author_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bookName_1" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/about_book"
+            style="@style/TitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_l"
+            android:text="@string/about_this_book"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bookAuthor_1" />
+
+        <TextView
+            android:id="@+id/bookDescription_1"
+            style="@style/BodyLargeText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_s"
+            android:text="@string/book_description_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/about_book" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
