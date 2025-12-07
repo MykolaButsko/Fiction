@@ -1,8 +1,13 @@
 <resources>
     <string name="app_name">Fiction</string>
 
+    <string name="cd_book">Book</string>
+    <string name="cd_books">Books</string>
+    <string name="cd_favorite_toggle">Favorite toggle</string>
+
     <string name="topics">Topics</string>
 
+    <string name="fiction">Fiction</string>
     <string name="culture_and_society">Culture &amp; Society</string>
     <string name="mind_and_philosophy">Mind &amp; Philosophy</string>
     <string name="personal_growth">Personal growth</string>
