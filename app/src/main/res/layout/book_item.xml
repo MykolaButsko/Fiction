@@ -8,31 +8,29 @@
         android:id="@+id/image_1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:importantForAccessibility="no"
+        android:contentDescription="@string/cd_book"
         android:src="@drawable/img_1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/bookName_1"
+        style="@style/BodyLargeTextBold"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_m"
-        android:fontFamily="@font/mulish_bold"
         android:text="@string/name_1"
-        android:textSize="@dimen/text_body_large"
-        app:layout_constraintStart_toStartOf="@+id/image_1"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_1" />
 
     <TextView
         android:id="@+id/bookAuthor_1"
+        style="@style/BodyText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_s"
-        android:fontFamily="@font/mulish_regular"
         android:text="@string/author_1"
-        android:textSize="@dimen/text_body"
-        app:layout_constraintStart_toStartOf="@+id/bookName_1"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bookName_1" />
 
     <ImageView
@@ -40,13 +38,13 @@
         android:layout_width="@dimen/icon_size"
         android:layout_height="@dimen/icon_size"
         android:layout_marginTop="@dimen/margin_s"
-        android:layout_marginBottom="@dimen/margin_s"
+        android:layout_marginBottom="@dimen/margin_m"
         android:clickable="true"
         android:focusable="true"
-        android:importantForAccessibility="no"
+        android:contentDescription="@string/cd_favorite_toggle"
         android:src="@drawable/like_empty"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/bookAuthor_1"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bookAuthor_1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
