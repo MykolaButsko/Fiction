@@ -12,7 +12,7 @@
         android:theme="@style/Theme.Fiction">
 
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +21,7 @@
         </activity>
 
         <activity
-            android:name=".BookDescriptionActivity"
+            android:name=".ui.activities.BookDescriptionActivity"
             android:exported="true">
         </activity>
 

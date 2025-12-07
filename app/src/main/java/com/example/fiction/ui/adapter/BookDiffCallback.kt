@@ -1,7 +1,7 @@
-package com.example.fiction
+package com.example.fiction.ui.adapter
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.fiction.dataClasses.Book
+import com.example.fiction.data.model.Book
 
 class BookDiffCallback : DiffUtil.ItemCallback<Book>() {
 

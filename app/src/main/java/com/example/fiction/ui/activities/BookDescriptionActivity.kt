@@ -1,11 +1,12 @@
-package com.example.fiction
+package com.example.fiction.ui.activities
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.fiction.R
 import com.example.fiction.databinding.ActivityBookDescriptionBinding
-import com.example.fiction.fragments.BookDescriptionFragment
+import com.example.fiction.ui.fragments.BookDescriptionFragment
 
 class BookDescriptionActivity : AppCompatActivity() {
 

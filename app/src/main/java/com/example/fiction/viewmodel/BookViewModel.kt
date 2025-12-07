@@ -3,7 +3,8 @@ package com.example.fiction.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.fiction.dataClasses.Book
+import com.example.fiction.data.model.Book
+import com.example.fiction.data.repository.BookRepository
 
 class BookViewModel(private val bookRepository: BookRepository) : ViewModel() {
 
@@ -25,7 +26,7 @@ class BookViewModel(private val bookRepository: BookRepository) : ViewModel() {
         _bookList.value = filteredBooks
     }
 
-    fun isLiked(bookID: Int) {
+    fun toggleFavorite(bookID: Int) {
         val currentFavorite = _favoriteListID.value ?: mutableSetOf()
         if (currentFavorite.contains(bookID)) {
             currentFavorite.remove(bookID)
@@ -33,11 +34,11 @@ class BookViewModel(private val bookRepository: BookRepository) : ViewModel() {
             currentFavorite.add(bookID)
         }
         _favoriteListID.value = currentFavorite
-        likeBook(bookID)
+        updateFavoriteBookState(bookID)
         filterFavBooks()
     }
 
-    private fun likeBook(bookID: Int) {
+    private fun updateFavoriteBookState(bookID: Int) {
         val currentList = _bookList.value ?: return
         val book = currentList.firstOrNull {it.bookID == bookID} ?: return
         val newState = !book.toggleFavorite

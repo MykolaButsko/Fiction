@@ -1,8 +1,8 @@
-package com.example.fiction.viewmodel
+package com.example.fiction.data.repository
 
 import android.content.Context
 import com.example.fiction.R
-import com.example.fiction.dataClasses.Book
+import com.example.fiction.data.model.Book
 
 class BookRepository(private val context: Context) {
 
@@ -15,34 +15,34 @@ class BookRepository(private val context: Context) {
                     Book(
                         1,
                         context.getString(R.string.culture_and_society),
-                        R.drawable.img_1,
+                        R.drawable.img_fiction,
                         false,
-                        context.getString(R.string.name_1),
-                        context.getString(R.string.author_1)
+                        context.getString(R.string.book_the_good_guy),
+                        context.getString(R.string.author_the_good_guy)
                     ),
                     Book(
                         2,
                         context.getString(R.string.culture_and_society),
-                        R.drawable.img_2,
+                        R.drawable.img_culture_and_society,
                         false,
-                        context.getString(R.string.name_2),
-                        context.getString(R.string.author_2)
+                        context.getString(R.string.book_norse_mythology),
+                        context.getString(R.string.author_norse_mythology)
                     ),
                     Book(
                         3,
                         context.getString(R.string.mind_and_philosophy),
-                        R.drawable.img_3,
+                        R.drawable.img_mind_and_philosophy,
                         false,
-                        context.getString(R.string.name_3),
-                        context.getString(R.string.author_3)
+                        context.getString(R.string.book_futurama),
+                        context.getString(R.string.author_futurama)
                     ),
                     Book(
                         4,
                         context.getString(R.string.personal_growth),
-                        R.drawable.img_4,
+                        R.drawable.img_personal_growth,
                         false,
-                        context.getString(R.string.name_4),
-                        context.getString(R.string.author_4)
+                        context.getString(R.string.book_explore_your_creative),
+                        context.getString(R.string.author_explore_your_creative)
                     )
                 )
             )
