@@ -4,18 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginStart="@dimen/margin_m"
-    android:layout_marginEnd="@dimen/margin_m">
+    android:paddingHorizontal="@dimen/margin_m">
 
     <TextView
         android:id="@+id/topics"
+        style="@style/TitleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_xl"
-        android:fontFamily="@font/mulish_bold"
+        android:layout_marginTop="@dimen/margin_xxl"
         android:text="@string/topics"
-        android:textColorHint="@color/white"
-        android:textSize="@dimen/text_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,10 +20,10 @@
         android:id="@+id/buttonFiction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_s"
+        android:layout_marginTop="@dimen/margin_l"
         android:fontFamily="@font/mulish_bold"
-        android:hint="@string/app_name"
-        android:textColorHint="@color/white"
+        android:text="@string/fiction"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topics" />
 
@@ -36,8 +33,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_s"
         android:fontFamily="@font/mulish_bold"
-        android:hint="@string/culture_and_society"
-        android:textColorHint="@color/white"
+        android:text="@string/culture_and_society"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/buttonFiction"
         app:layout_constraintStart_toEndOf="@+id/buttonFiction"
         app:layout_constraintTop_toTopOf="@+id/buttonFiction" />
@@ -48,8 +45,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_s"
         android:fontFamily="@font/mulish_bold"
-        android:hint="@string/mind_and_philosophy"
-        android:textColorHint="@color/white"
+        android:text="@string/mind_and_philosophy"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonFiction" />
 
@@ -59,21 +56,19 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_s"
         android:fontFamily="@font/mulish_bold"
-        android:hint="@string/personal_growth"
-        android:textColorHint="@color/white"
-        app:layout_constraintStart_toStartOf="@+id/buttonMindAndPhilosophy"
+        android:text="@string/personal_growth"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonMindAndPhilosophy" />
 
     <TextView
         android:id="@+id/textViewFiction"
+        style="@style/TitleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_l"
-        android:fontFamily="@font/mulish_bold"
-        android:importantForAccessibility="no"
-        android:text="@string/app_name"
-        android:textSize="@dimen/text_title"
-        app:layout_constraintStart_toStartOf="@+id/buttonPersonalGrowth"
+        android:text="@string/fiction"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonPersonalGrowth" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -81,10 +76,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/margin_l"
-        android:clipToPadding="false"
-        android:importantForAccessibility="no"
-        android:scrollbars="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:contentDescription="@string/cd_books"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
