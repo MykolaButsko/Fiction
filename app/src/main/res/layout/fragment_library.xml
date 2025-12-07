@@ -4,17 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginStart="@dimen/margin_m"
-    android:layout_marginEnd="@dimen/margin_m">
+    android:paddingHorizontal="@dimen/margin_m">
 
     <TextView
         android:id="@+id/favList"
+        style="@style/TitleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_xl"
-        android:fontFamily="@font/mulish_bold"
+        android:layout_marginTop="@dimen/margin_xxl"
         android:text="@string/favorites_list"
-        android:textSize="@dimen/text_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,10 +21,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/margin_xl"
-        android:clipToPadding="false"
-        android:importantForAccessibility="no"
-        android:scrollbars="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:contentDescription="@string/cd_books"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
