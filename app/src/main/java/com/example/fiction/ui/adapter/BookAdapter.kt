@@ -18,24 +18,24 @@ class BookAdapter(
 
         fun bind(book: Book) = with(binding) {
 
-            image1.setImageResource(book.img)
+            bookImg.setImageResource(book.img)
 
             val icon = if (book.toggleFavorite) {
-                R.drawable.like_filled
+                R.drawable.ic_favorite_filled
             } else {
-                R.drawable.like_empty
+                R.drawable.ic_favorite_border
             }
 
-            favoriteIcon.setImageResource(icon)
+            favoriteToggle.setImageResource(icon)
 
-            bookName1.text = book.bookName
-            bookAuthor1.text = book.bookAuthor
+            bookName.text = book.bookName
+            bookAuthor.text = book.bookAuthor
 
-            image1.setOnClickListener {
+            bookImg.setOnClickListener {
                 onOpenBookDescription(book)
             }
 
-            favoriteIcon.setOnClickListener {
+            favoriteToggle.setOnClickListener {
                 onFavoriteToggle(book.bookID)
             }
         }

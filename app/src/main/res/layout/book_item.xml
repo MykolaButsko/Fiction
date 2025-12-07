@@ -5,36 +5,36 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/image_1"
+        android:id="@+id/bookImg"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:contentDescription="@string/cd_book"
-        android:src="@drawable/img_1"
+        android:src="@drawable/img_fiction"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/bookName_1"
+        android:id="@+id/bookName"
         style="@style/BodyLargeTextBold"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_m"
-        android:text="@string/name_1"
+        android:text="@string/book_the_good_guy"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_1" />
+        app:layout_constraintTop_toBottomOf="@+id/bookImg" />
 
     <TextView
-        android:id="@+id/bookAuthor_1"
+        android:id="@+id/bookAuthor"
         style="@style/BodyText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_s"
-        android:text="@string/author_1"
+        android:text="@string/author_the_good_guy"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bookName_1" />
+        app:layout_constraintTop_toBottomOf="@+id/bookName" />
 
     <ImageView
-        android:id="@+id/favoriteIcon"
+        android:id="@+id/favorite_toggle"
         android:layout_width="@dimen/icon_size"
         android:layout_height="@dimen/icon_size"
         android:layout_marginTop="@dimen/margin_s"
@@ -42,9 +42,9 @@
         android:clickable="true"
         android:focusable="true"
         android:contentDescription="@string/cd_favorite_toggle"
-        android:src="@drawable/like_empty"
+        android:src="@drawable/ic_favorite_border"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bookAuthor_1" />
+        app:layout_constraintTop_toBottomOf="@+id/bookAuthor" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

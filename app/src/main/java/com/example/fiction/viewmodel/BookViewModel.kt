@@ -26,7 +26,7 @@ class BookViewModel(private val bookRepository: BookRepository) : ViewModel() {
         _bookList.value = filteredBooks
     }
 
-    fun isLiked(bookID: Int) {
+    fun toggleFavorite(bookID: Int) {
         val currentFavorite = _favoriteListID.value ?: mutableSetOf()
         if (currentFavorite.contains(bookID)) {
             currentFavorite.remove(bookID)
@@ -34,11 +34,11 @@ class BookViewModel(private val bookRepository: BookRepository) : ViewModel() {
             currentFavorite.add(bookID)
         }
         _favoriteListID.value = currentFavorite
-        likeBook(bookID)
+        updateFavoriteBookState(bookID)
         filterFavBooks()
     }
 
-    private fun likeBook(bookID: Int) {
+    private fun updateFavoriteBookState(bookID: Int) {
         val currentList = _bookList.value ?: return
         val book = currentList.firstOrNull {it.bookID == bookID} ?: return
         val newState = !book.toggleFavorite

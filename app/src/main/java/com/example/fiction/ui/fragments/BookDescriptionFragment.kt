@@ -34,32 +34,32 @@ class BookDescriptionFragment : Fragment() {
 
         val booksDescription = listOf(
             BookDescription(
-                R.drawable.img_1,
-                getString(R.string.name_1),
-                getString(R.string.author_1),
+                R.drawable.img_fiction,
+                getString(R.string.book_futurama),
+                getString(R.string.author_futurama),
                 getString(R.string.about_this_book),
-                getString(R.string.book_description_1)
+                getString(R.string.book_description_futurama)
             ),
             BookDescription(
-                R.drawable.img_2,
-                getString(R.string.name_2),
-                getString(R.string.author_2),
+                R.drawable.img_culture_and_society,
+                getString(R.string.book_norse_mythology),
+                getString(R.string.author_norse_mythology),
                 getString(R.string.about_this_book),
-                getString(R.string.book_description_2)
+                getString(R.string.book_description_norse_mythology)
             ),
             BookDescription(
-                R.drawable.img_3,
-                getString(R.string.name_3),
-                getString(R.string.author_3),
+                R.drawable.img_mind_and_philosophy,
+                getString(R.string.book_futurama),
+                getString(R.string.author_futurama),
                 getString(R.string.about_this_book),
-                getString(R.string.book_description_3)
+                getString(R.string.book_description_futurama)
             ),
             BookDescription(
-                R.drawable.img_4,
-                getString(R.string.name_4),
-                getString(R.string.author_4),
+                R.drawable.img_personal_growth,
+                getString(R.string.book_description_explore_your_creative),
+                getString(R.string.author_explore_your_creative),
                 getString(R.string.about_this_book),
-                getString(R.string.book_description_4)
+                getString(R.string.book_description_explore_your_creative)
             )
         )
         val selectedBook = booksDescription.find {
@@ -67,11 +67,11 @@ class BookDescriptionFragment : Fragment() {
         }
 
         if (selectedBook != null) with(bookDescriptionBinding) {
-            image1.setImageResource(selectedBook.img)
-            bookName1.text = selectedBook.bookName
-            bookAuthor1.text = selectedBook.bookAuthor
+            bookImg.setImageResource(selectedBook.img)
+            bookName.text = selectedBook.bookName
+            bookAuthor.text = selectedBook.bookAuthor
             aboutBook.text = selectedBook.aboutBook
-            bookDescription1.text = selectedBook.bookDescription
+            bookDescription.text = selectedBook.bookDescription
         }
     }
 }

@@ -45,7 +45,7 @@ abstract class BaseFragment<VBinding : ViewBinding>(
             },
 
             onFavoriteToggle = { bookID ->
-                bookViewModel.isLiked(bookID)
+                bookViewModel.toggleFavorite(bookID)
             }
         )
     }
