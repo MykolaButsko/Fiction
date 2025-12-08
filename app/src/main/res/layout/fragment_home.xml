@@ -16,50 +16,50 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/buttonFiction"
+    <com.google.android.flexbox.FlexboxLayout
+        android:id="@+id/categoriesContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_l"
-        android:fontFamily="@font/mulish_bold"
-        android:text="@string/fiction"
-        android:textColor="@color/white"
+        app:flexDirection="row"
+        app:flexWrap="wrap"
+        app:justifyContent="flex_start"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topics" />
+        app:layout_constraintTop_toBottomOf="@+id/topics">
 
-    <Button
-        android:id="@+id/buttonCultureAndSociety"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_s"
-        android:fontFamily="@font/mulish_bold"
-        android:text="@string/culture_and_society"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonFiction"
-        app:layout_constraintStart_toEndOf="@+id/buttonFiction"
-        app:layout_constraintTop_toTopOf="@+id/buttonFiction" />
+        <com.google.android.material.button.MaterialButton
+            style="@style/CategoryButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_s"
+            android:tag="fiction"
+            android:text="@string/fiction" />
 
-    <Button
-        android:id="@+id/buttonMindAndPhilosophy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_s"
-        android:fontFamily="@font/mulish_bold"
-        android:text="@string/mind_and_philosophy"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonFiction" />
+        <com.google.android.material.button.MaterialButton
+            style="@style/CategoryButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_s"
+            android:tag="culture"
+            android:text="@string/culture_and_society" />
 
-    <Button
-        android:id="@+id/buttonPersonalGrowth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_s"
-        android:fontFamily="@font/mulish_bold"
-        android:text="@string/personal_growth"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonMindAndPhilosophy" />
+        <com.google.android.material.button.MaterialButton
+            style="@style/CategoryButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_s"
+            android:tag="mind"
+            android:text="@string/mind_and_philosophy" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/CategoryButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_s"
+            android:tag="growth"
+            android:text="@string/personal_growth" />
+
+    </com.google.android.flexbox.FlexboxLayout>
 
     <TextView
         android:id="@+id/textViewFiction"
@@ -69,7 +69,7 @@
         android:layout_marginTop="@dimen/margin_l"
         android:text="@string/fiction"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonPersonalGrowth" />
+        app:layout_constraintTop_toBottomOf="@+id/categoriesContainer" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
