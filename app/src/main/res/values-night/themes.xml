@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Fiction" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:colorBackground">@color/theme_background</item>
+        <item name="android:windowBackground">@color/theme_background</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:statusBarColor">@color/theme_background</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:navigationBarColor">@color/bottom_nav_bar_background</item>
+        <item name="android:windowLightNavigationBar">true</item>
+    </style>
+
+</resources>
