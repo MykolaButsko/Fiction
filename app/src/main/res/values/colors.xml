@@ -9,5 +9,5 @@
 
     <color name="button_background">#8C8C8C</color>
     <color name="theme_background">#F5F5F5</color>
-    <color name="bottom_nav_bar_background">#4B4B4B</color>
+    <color name="bottom_nav_background">#4B4B4B</color>
 </resources>

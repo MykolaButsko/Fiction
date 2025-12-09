@@ -35,9 +35,9 @@
         <item name="android:lineHeight">@dimen/line_height_body</item>
     </style>
 
-    <style name="Widget.App.BottomNavBarStyle" parent="Widget.Material3.BottomNavigationView">
-        <item name="android:background">@color/bottom_nav_bar_background</item>
-        <item name="itemIconSize">@dimen/icon_size_bottom_nav_bar</item>
+    <style name="Widget.App.BottomNavStyle" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:background">@color/bottom_nav_background</item>
+        <item name="itemIconSize">@dimen/icon_size_bottom_nav</item>
         <item name="itemActiveIndicatorStyle">@android:color/transparent</item>
         <item name="itemRippleColor">@android:color/transparent</item>
         <item name="itemIconTint">@drawable/ic_item_selector</item>

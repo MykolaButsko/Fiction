@@ -54,6 +54,6 @@
         and foster greater life satisfaction.
     </string>
 
-    <string name="home_bottom_navigation_bar">Home</string>
-    <string name="library_bottom_navigation_bar">Library</string>
+    <string name="home_bottom_navigation">Home</string>
+    <string name="library_bottom_navigation">Library</string>
 </resources>

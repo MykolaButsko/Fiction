@@ -15,7 +15,7 @@
 
     <dimen name="line_height_body">24sp</dimen>
 
-    <dimen name="icon_size_bottom_nav_bar">32dp</dimen>
+    <dimen name="icon_size_bottom_nav">32dp</dimen>
 
     <dimen name="button_height">56dp</dimen>
 
