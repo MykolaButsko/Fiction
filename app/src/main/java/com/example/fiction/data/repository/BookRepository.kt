@@ -3,8 +3,12 @@ package com.example.fiction.data.repository
 import android.content.Context
 import com.example.fiction.R
 import com.example.fiction.data.model.Book
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
 
-class BookRepository(private val context: Context) {
+class BookRepository @Inject constructor(
+    @ApplicationContext private val context: Context
+) {
 
     private val booksList: MutableList<Book> = mutableListOf()
 

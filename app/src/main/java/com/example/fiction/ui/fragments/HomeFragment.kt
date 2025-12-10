@@ -9,7 +9,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.fiction.data.model.Genre
 import com.example.fiction.databinding.FragmentHomeBinding
 import com.google.android.material.button.MaterialButton
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>(
     FragmentHomeBinding::inflate
 ) {

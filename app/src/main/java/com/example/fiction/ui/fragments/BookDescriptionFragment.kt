@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import com.example.fiction.R
 import com.example.fiction.data.model.BookDescription
 import com.example.fiction.databinding.FragmentBookDescriptionBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class BookDescriptionFragment : Fragment() {
 
     companion object {

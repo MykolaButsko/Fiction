@@ -10,15 +10,12 @@ import androidx.viewbinding.ViewBinding
 import com.example.fiction.ui.adapter.BookAdapter
 import com.example.fiction.ui.activities.BookDescriptionActivity
 import com.example.fiction.viewmodel.BookViewModel
-import com.example.fiction.viewmodel.BookViewModelFactory
 
 abstract class BaseFragment<VBinding : ViewBinding>(
     private val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> VBinding
 ) : Fragment() {
 
-    protected val bookViewModel: BookViewModel by activityViewModels {
-        BookViewModelFactory(requireContext())
-    }
+    protected val bookViewModel: BookViewModel by activityViewModels()
 
     protected lateinit var bookAdapter: BookAdapter
 
