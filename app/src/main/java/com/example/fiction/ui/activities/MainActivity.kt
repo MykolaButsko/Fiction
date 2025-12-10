@@ -7,7 +7,9 @@ import com.example.fiction.R
 import com.example.fiction.databinding.ActivityMainBinding
 import com.example.fiction.ui.fragments.HomeFragment
 import com.example.fiction.ui.fragments.LibraryFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mainBinding: ActivityMainBinding

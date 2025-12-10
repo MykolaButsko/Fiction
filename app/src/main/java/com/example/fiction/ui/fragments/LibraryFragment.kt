@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.fiction.databinding.FragmentLibraryBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LibraryFragment : BaseFragment<FragmentLibraryBinding>(
     FragmentLibraryBinding::inflate
 ) {

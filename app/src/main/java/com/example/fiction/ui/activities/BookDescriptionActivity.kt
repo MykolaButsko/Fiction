@@ -7,7 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.fiction.R
 import com.example.fiction.databinding.ActivityBookDescriptionBinding
 import com.example.fiction.ui.fragments.BookDescriptionFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class BookDescriptionActivity : AppCompatActivity() {
 
     companion object {
