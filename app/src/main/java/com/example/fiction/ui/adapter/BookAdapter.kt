@@ -9,7 +9,7 @@ import com.example.fiction.data.model.Book
 import com.example.fiction.databinding.BookItemBinding
 
 class BookAdapter(
-    private val onOpenBookDescription: (Book) -> Unit,
+    private val onOpenBookDescription: (Int) -> Unit,
     private val onFavoriteToggle: (Int) -> Unit
 ) : ListAdapter<Book, BookAdapter.BookViewHolder>(BookDiffCallback()) {
 
@@ -32,7 +32,7 @@ class BookAdapter(
             bookAuthor.text = book.author
 
             bookImg.setOnClickListener {
-                onOpenBookDescription(book)
+                onOpenBookDescription(book.bookId)
             }
 
             favoriteToggle.setOnClickListener {
