@@ -56,16 +56,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
         allButtons.forEach { button ->
             button.setOnClickListener {
 
-                val genre = Genre.entries.firstOrNull {
-                    it.key == button.tag
-                } ?: return@setOnClickListener
+                val genre = Genre.fromKey(button.tag as? String)
+                    ?: return@setOnClickListener
 
-                textViewFiction.text = getString(genre.titleRes)
-
-                when (genre) {
-                    Genre.FICTION -> bookViewModel.loadBook()
-                    else -> bookViewModel.filterBooksByGenre(getString(genre.titleRes))
-                }
+                textViewFiction.setText(genre.titleRes)
+                bookViewModel.onGenreSelected(genre)
             }
         }
     }
