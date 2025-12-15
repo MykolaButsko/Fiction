@@ -16,13 +16,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/cd_book"
-            android:src="@drawable/img_fiction"
+            android:src="@drawable/img_the_good_guy"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/bookName"
+            android:id="@+id/bookTitle"
             style="@style/TitleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
             android:layout_marginTop="@dimen/margin_s"
             android:text="@string/author_the_good_guy"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bookName" />
+            app:layout_constraintTop_toBottomOf="@+id/bookTitle" />
 
         <TextView
             android:id="@+id/aboutBook"

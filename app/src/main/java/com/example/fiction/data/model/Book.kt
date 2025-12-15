@@ -1,10 +1,10 @@
 package com.example.fiction.data.model
 
 data class Book(
-    val bookID: Int,
-    val genre: String,
-    val img: Int,
-    val toggleFavorite: Boolean,
-    val bookName: String,
-    val bookAuthor: String
+    val bookId: Int,
+    val genre: Genre,
+    val imageRes: Int,
+    val isFavorite: Boolean,
+    val title: String,
+    val author: String
 )

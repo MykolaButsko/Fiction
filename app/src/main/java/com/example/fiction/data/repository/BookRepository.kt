@@ -1,68 +1,42 @@
 package com.example.fiction.data.repository
 
-import android.content.Context
-import com.example.fiction.R
 import com.example.fiction.data.model.Book
-import dagger.hilt.android.qualifiers.ApplicationContext
+import com.example.fiction.data.model.Genre
+import com.example.fiction.data.resources.AppResources
 import javax.inject.Inject
 
 class BookRepository @Inject constructor(
-    @ApplicationContext private val context: Context
+    private val resources: AppResources
 ) {
-
-    private val booksList: MutableList<Book> = mutableListOf()
+    private val bookList: MutableList<Book> = mutableListOf()
 
     fun getBooks(): List<Book> {
-        if (booksList.isEmpty()) {
-            booksList.addAll(
-                listOf(
+        if (bookList.isEmpty()) {
+            bookList.addAll(
+                resources.titles.mapIndexed { index, title ->
                     Book(
-                        1,
-                        context.getString(R.string.culture_and_society),
-                        R.drawable.img_fiction,
-                        false,
-                        context.getString(R.string.book_the_good_guy),
-                        context.getString(R.string.author_the_good_guy)
-                    ),
-                    Book(
-                        2,
-                        context.getString(R.string.culture_and_society),
-                        R.drawable.img_culture_and_society,
-                        false,
-                        context.getString(R.string.book_norse_mythology),
-                        context.getString(R.string.author_norse_mythology)
-                    ),
-                    Book(
-                        3,
-                        context.getString(R.string.mind_and_philosophy),
-                        R.drawable.img_mind_and_philosophy,
-                        false,
-                        context.getString(R.string.book_futurama),
-                        context.getString(R.string.author_futurama)
-                    ),
-                    Book(
-                        4,
-                        context.getString(R.string.personal_growth),
-                        R.drawable.img_personal_growth,
-                        false,
-                        context.getString(R.string.book_explore_your_creative),
-                        context.getString(R.string.author_explore_your_creative)
+                        bookId = index + 1,
+                        genre = resources.bookGenres[index],
+                        imageRes = resources.bookImages[index],
+                        isFavorite = false,
+                        title = title,
+                        author = resources.authors[index]
                     )
-                )
+                }
             )
         }
-        return booksList.toList()
+        return bookList.toList()
     }
 
-    fun getBooksByGenre(genreBook: String): List<Book> {
-        return booksList.filter { it.genre == genreBook }
+    fun getBookByGenre(genreBook: Genre): List<Book> {
+        return bookList.filter { it.genre == genreBook }
     }
 
-    fun updateFavoriteBook(bookID: Int, isFavorite: Boolean) {
-        val index = booksList.indexOfFirst { it.bookID == bookID }
+    fun updateFavoriteBook(bookId: Int, isFavorite: Boolean) {
+        val index = bookList.indexOfFirst { it.bookId == bookId }
         if (index != -1) {
-            val updatedBook = booksList[index].copy(toggleFavorite = isFavorite)
-            booksList[index] = updatedBook
+            val updatedBook = bookList[index].copy(isFavorite = isFavorite)
+            bookList[index] = updatedBook
         }
     }
 }

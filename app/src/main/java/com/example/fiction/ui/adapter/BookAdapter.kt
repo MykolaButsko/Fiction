@@ -9,7 +9,7 @@ import com.example.fiction.data.model.Book
 import com.example.fiction.databinding.BookItemBinding
 
 class BookAdapter(
-    private val onOpenBookDescription: (Book) -> Unit,
+    private val onOpenBookDescription: (Int) -> Unit,
     private val onFavoriteToggle: (Int) -> Unit
 ) : ListAdapter<Book, BookAdapter.BookViewHolder>(BookDiffCallback()) {
 
@@ -18,9 +18,9 @@ class BookAdapter(
 
         fun bind(book: Book) = with(binding) {
 
-            bookImg.setImageResource(book.img)
+            bookImg.setImageResource(book.imageRes)
 
-            val icon = if (book.toggleFavorite) {
+            val icon = if (book.isFavorite) {
                 R.drawable.ic_favorite_filled
             } else {
                 R.drawable.ic_favorite_border
@@ -28,15 +28,15 @@ class BookAdapter(
 
             favoriteToggle.setImageResource(icon)
 
-            bookName.text = book.bookName
-            bookAuthor.text = book.bookAuthor
+            bookTitle.text = book.title
+            bookAuthor.text = book.author
 
             bookImg.setOnClickListener {
-                onOpenBookDescription(book)
+                onOpenBookDescription(book.bookId)
             }
 
             favoriteToggle.setOnClickListener {
-                onFavoriteToggle(book.bookID)
+                onFavoriteToggle(book.bookId)
             }
         }
     }

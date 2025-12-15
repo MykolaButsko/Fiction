@@ -1,13 +1,13 @@
 package com.example.fiction.ui.fragments
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.core.view.children
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.fiction.data.model.Genre
 import com.example.fiction.databinding.FragmentHomeBinding
+import com.example.fiction.ui.activities.BookDescriptionActivity
+import com.example.fiction.ui.adapter.BookAdapter
 import com.google.android.material.button.MaterialButton
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -15,19 +15,21 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>(
     FragmentHomeBinding::inflate
 ) {
+    private val bookAdapter by lazy {
+        BookAdapter(
+            onOpenBookDescription = { bookId ->
+                val intent = BookDescriptionActivity.createIntent(requireContext(), bookId)
+                startActivity(intent)
+            },
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
-        super.onCreateView(inflater, container, savedInstanceState)
-
-        init()
-        chooseGenreBook()
-
-        return binding.root
+            onFavoriteToggle = { bookId ->
+                bookViewModel.toggleFavorite(bookId)
+            }
+        )
     }
 
-    private fun init() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         binding.recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         binding.recyclerView.adapter = bookAdapter
@@ -35,6 +37,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
         observeAndUpdateBooks()
 
         bookViewModel.loadBook()
+
+        chooseGenreBook()
     }
 
     private fun observeAndUpdateBooks() {
@@ -52,16 +56,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
         allButtons.forEach { button ->
             button.setOnClickListener {
 
-                val genre = Genre.entries.firstOrNull {
-                    it.key == button.tag
-                } ?: return@setOnClickListener
+                val genre = Genre.fromKey(button.tag as? String)
+                    ?: return@setOnClickListener
 
-                textViewFiction.text = getString(genre.titleRes)
-
-                when (genre) {
-                    Genre.FICTION -> bookViewModel.loadBook()
-                    else -> bookViewModel.filterBooksByGenre(getString(genre.titleRes))
-                }
+                textViewFiction.setText(genre.titleRes)
+                bookViewModel.onGenreSelected(genre)
             }
         }
     }

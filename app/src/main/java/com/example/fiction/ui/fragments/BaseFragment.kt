@@ -7,8 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.viewbinding.ViewBinding
-import com.example.fiction.ui.adapter.BookAdapter
-import com.example.fiction.ui.activities.BookDescriptionActivity
+import com.example.fiction.utils.Constants
 import com.example.fiction.viewmodel.BookViewModel
 
 abstract class BaseFragment<VBinding : ViewBinding>(
@@ -17,34 +16,16 @@ abstract class BaseFragment<VBinding : ViewBinding>(
 
     protected val bookViewModel: BookViewModel by activityViewModels()
 
-    protected lateinit var bookAdapter: BookAdapter
-
     private var _binding: VBinding? = null
     protected val binding: VBinding
-        get() = _binding ?: throw IllegalStateException("Binding is null. View is destroyed.")
+        get() = _binding ?: throw IllegalStateException(Constants.BINDING_DESTROYED_ERROR)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = bindingInflater(inflater, container, false)
 
-        initBookAdapter()
-
         return binding.root
-    }
-
-    private fun initBookAdapter() {
-
-        bookAdapter = BookAdapter(
-            onOpenBookDescription = { book ->
-                val intent = BookDescriptionActivity.createIntent(requireContext(), book.bookName)
-                startActivity(intent)
-            },
-
-            onFavoriteToggle = { bookID ->
-                bookViewModel.toggleFavorite(bookID)
-            }
-        )
     }
 
     override fun onDestroyView() {

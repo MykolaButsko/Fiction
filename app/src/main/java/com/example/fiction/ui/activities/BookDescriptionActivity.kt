@@ -7,17 +7,16 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.fiction.R
 import com.example.fiction.databinding.ActivityBookDescriptionBinding
 import com.example.fiction.ui.fragments.BookDescriptionFragment
+import com.example.fiction.utils.Constants
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class BookDescriptionActivity : AppCompatActivity() {
 
     companion object {
-        const val EXTRA_BOOK_NAME = "EXTRA_BOOK_NAME"
-
-        fun createIntent(context: Context, bookName: String): Intent {
+        fun createIntent(context: Context, bookId: Int): Intent {
             return Intent(context, BookDescriptionActivity::class.java).apply {
-                putExtra(EXTRA_BOOK_NAME, bookName)
+                putExtra(Constants.ARG_BOOK_ID, bookId)
             }
         }
     }
@@ -30,11 +29,11 @@ class BookDescriptionActivity : AppCompatActivity() {
         setContentView(activityBookDescription.root)
 
         if (savedInstanceState == null) {
-            val bookName = intent.getStringExtra(EXTRA_BOOK_NAME)
+            val bookId = intent.getIntExtra(Constants.ARG_BOOK_ID, -1)
 
             val bookDescriptionFragment = BookDescriptionFragment().apply {
                 arguments = Bundle().apply {
-                    putString(BookDescriptionFragment.ARG_BOOK_NAME, bookName)
+                    putInt(Constants.ARG_BOOK_ID, bookId)
                 }
             }
 
