@@ -2,9 +2,9 @@ package com.example.fiction.ui.fragments
 
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.fiction.databinding.FragmentLibraryBinding
-import com.example.fiction.ui.activities.BookDescriptionActivity
 import com.example.fiction.ui.adapter.BookAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -15,8 +15,10 @@ class LibraryFragment : BaseFragment<FragmentLibraryBinding>(
     private val bookAdapter by lazy {
         BookAdapter(
             onOpenBookDescription = { bookId ->
-                val intent = BookDescriptionActivity.createIntent(requireContext(), bookId)
-                startActivity(intent)
+                findNavController().navigate(
+                    LibraryFragmentDirections
+                        .actionLibraryFragmentToBookDescriptionFragment(bookId)
+                )
             },
 
             onFavoriteToggle = { bookId ->
