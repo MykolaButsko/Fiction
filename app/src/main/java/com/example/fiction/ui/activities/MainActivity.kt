@@ -17,16 +17,20 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val topLevelDestinations = setOf(R.id.homeFragment, R.id.libraryFragment)
-
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mainBinding.root)
 
+        setupNavigation()
+    }
+
+    private fun setupNavigation() {
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
         mainBinding.bottomNavigation.setupWithNavController(navController)
+
+        val topLevelDestinations = setOf(R.id.homeFragment, R.id.libraryFragment)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.id in topLevelDestinations) {
