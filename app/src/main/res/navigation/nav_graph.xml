@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.fiction.ui.fragments.HomeFragment"
+        android:label="@string/home">
+
+        <action
+            android:id="@+id/action_homeFragment_to_bookDescriptionFragment"
+            app:destination="@+id/bookDescriptionFragment"
+            app:enterAnim="@anim/fade_in_scale"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in_scale"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/libraryFragment"
+        android:name="com.example.fiction.ui.fragments.LibraryFragment"
+        android:label="@string/library">
+
+        <action
+            android:id="@+id/action_libraryFragment_to_bookDescriptionFragment"
+            app:destination="@+id/bookDescriptionFragment"
+            app:enterAnim="@anim/fade_in_scale"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in_scale"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/bookDescriptionFragment"
+        android:name="com.example.fiction.ui.fragments.BookDescriptionFragment"
+        android:label="@string/book_description">
+
+        <argument
+            android:name="bookId"
+            app:argType="integer" />
+    </fragment>
+
+</navigation>

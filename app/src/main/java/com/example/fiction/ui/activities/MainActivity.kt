@@ -1,12 +1,12 @@
 package com.example.fiction.ui.activities
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.example.fiction.R
 import com.example.fiction.databinding.ActivityMainBinding
-import com.example.fiction.ui.fragments.HomeFragment
-import com.example.fiction.ui.fragments.LibraryFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -14,43 +14,30 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var mainBinding: ActivityMainBinding
 
-    private val homeFragment = HomeFragment()
-    private val libraryFragment = LibraryFragment()
-
-    private var currentFragment: Fragment = homeFragment
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mainBinding.root)
 
-        supportFragmentManager.beginTransaction().replace(R.id.frameLayout, currentFragment)
-            .commit()
-
-        setButtonNavigation()
+        setupNavigation()
     }
 
-    private fun switchFragment(fragment: Fragment) {
-        if (currentFragment != fragment) {
-            currentFragment = fragment
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.frameLayout, fragment)
-                .commit()
-        }
-    }
+    private fun setupNavigation() {
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
 
-    private fun setButtonNavigation() = with(mainBinding) {
-        bottomNavigation.setOnItemSelectedListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.home_bottom_nav -> {
-                    switchFragment(homeFragment)
-                }
+        mainBinding.bottomNavigation.setupWithNavController(navController)
 
-                R.id.library_bottom_nav -> {
-                    switchFragment(libraryFragment)
-                }
+        val topLevelDestinations = setOf(R.id.homeFragment, R.id.libraryFragment)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id in topLevelDestinations) {
+                mainBinding.bottomNavigation.visibility = View.VISIBLE
+            } else {
+                mainBinding.bottomNavigation.visibility = View.GONE
             }
-            true
         }
     }
 }

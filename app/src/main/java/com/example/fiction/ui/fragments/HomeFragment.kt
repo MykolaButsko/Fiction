@@ -3,10 +3,10 @@ package com.example.fiction.ui.fragments
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.children
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.fiction.data.model.Genre
 import com.example.fiction.databinding.FragmentHomeBinding
-import com.example.fiction.ui.activities.BookDescriptionActivity
 import com.example.fiction.ui.adapter.BookAdapter
 import com.google.android.material.button.MaterialButton
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,8 +18,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
     private val bookAdapter by lazy {
         BookAdapter(
             onOpenBookDescription = { bookId ->
-                val intent = BookDescriptionActivity.createIntent(requireContext(), bookId)
-                startActivity(intent)
+                findNavController().navigate(
+                    HomeFragmentDirections
+                        .actionHomeFragmentToBookDescriptionFragment(bookId)
+                )
             },
 
             onFavoriteToggle = { bookId ->
