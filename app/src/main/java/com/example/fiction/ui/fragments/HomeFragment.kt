@@ -3,6 +3,9 @@ package com.example.fiction.ui.fragments
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.children
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.fiction.data.model.Genre
@@ -10,6 +13,7 @@ import com.example.fiction.databinding.FragmentHomeBinding
 import com.example.fiction.ui.adapter.BookAdapter
 import com.google.android.material.button.MaterialButton
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>(
@@ -44,8 +48,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
     }
 
     private fun observeAndUpdateBooks() {
-        bookViewModel.bookListLiveData.observe(viewLifecycleOwner) { books ->
-            bookAdapter.submitList(books)
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                bookViewModel.bookList.collect { books ->
+                    bookAdapter.submitList(books)
+                }
+            }
         }
     }
 

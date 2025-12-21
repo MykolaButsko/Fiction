@@ -2,11 +2,15 @@ package com.example.fiction.ui.fragments
 
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.fiction.databinding.FragmentLibraryBinding
 import com.example.fiction.ui.adapter.BookAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class LibraryFragment : BaseFragment<FragmentLibraryBinding>(
@@ -37,8 +41,12 @@ class LibraryFragment : BaseFragment<FragmentLibraryBinding>(
     }
 
     private fun updateFavList() {
-        bookViewModel.favListBooks.observe(viewLifecycleOwner) { bookId ->
-            bookAdapter.submitList(bookId)
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                bookViewModel.favListBooks.collect { bookId ->
+                    bookAdapter.submitList(bookId)
+                }
+            }
         }
     }
 }
