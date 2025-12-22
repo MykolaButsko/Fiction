@@ -50,7 +50,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
     private fun observeAndUpdateBooks() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                bookViewModel.bookList.collect { books ->
+                bookViewModel.homeBooks.collect { books ->
                     bookAdapter.submitList(books)
                 }
             }
