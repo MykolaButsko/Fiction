@@ -57,11 +57,7 @@ class BookViewModel @Inject constructor(
         }
     }
 
-    fun onGenreSelected(genre: Genre) {
-        if (genre == Genre.FICTION) {
-            loadBook()
-        } else {
-            currentGenre.value = genre
-        }
+    fun selectGenre(genre: Genre?) {
+        currentGenre.value = if (genre == Genre.ALL) null else genre
     }
 }
