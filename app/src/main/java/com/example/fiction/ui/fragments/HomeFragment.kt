@@ -69,8 +69,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
                 val genre = Genre.fromKey(button.tag as? String)
                     ?: return@setOnClickListener
 
-                textViewFiction.setText(genre.titleRes)
-                bookViewModel.onGenreSelected(genre)
+                textViewAll.text = genre.getTitle(requireContext())
+                bookViewModel.selectGenre(genre)
             }
         }
     }
