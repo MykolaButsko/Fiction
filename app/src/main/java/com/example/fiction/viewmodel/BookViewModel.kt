@@ -19,15 +19,16 @@ class BookViewModel @Inject constructor(
     private val bookRepository: BookRepository
 ) : ViewModel() {
 
-    private val bookList = MutableStateFlow<List<Book>>(emptyList())
-    private val favoriteId = MutableStateFlow<Set<Int>>(mutableSetOf())
-    private val currentGenre = MutableStateFlow<Genre?>(null)
+    private val _bookList = MutableStateFlow<List<Book>>(emptyList())
+    private val _favoriteId = MutableStateFlow<Set<Int>>(mutableSetOf())
+    private val _currentGenre = MutableStateFlow(Genre.ALL)
+    val currentGenre: StateFlow<Genre> = _currentGenre
 
     val homeBooks: StateFlow<List<Book>> =
-        combine(bookList, favoriteId, currentGenre) { books, favIds, genre ->
+        combine(_bookList, _favoriteId, _currentGenre) { books, favIds, genre ->
 
             books
-                .filter { genre == null || it.genre == genre }
+                .filter { genre == Genre.ALL || it.genre == genre }
                 .map { book ->
                     book.copy(isFavorite = favIds.contains(book.bookId))
                 }
@@ -37,7 +38,7 @@ class BookViewModel @Inject constructor(
             emptyList()
         )
 
-    val libraryBooks = combine(bookList, favoriteId) { books, favIds ->
+    val libraryBooks = combine(_bookList, _favoriteId) { books, favIds ->
         books
             .filter { it.bookId in favIds }
             .map { it.copy(isFavorite = true) }
@@ -48,16 +49,16 @@ class BookViewModel @Inject constructor(
     )
 
     fun loadBook() {
-        bookList.value = bookRepository.getBooks()
+        _bookList.value = bookRepository.getBooks()
     }
 
     fun toggleFavorite(bookId: Int) {
-        favoriteId.update { ids ->
+        _favoriteId.update { ids ->
             if (ids.contains(bookId)) ids - bookId else ids + bookId
         }
     }
 
-    fun selectGenre(genre: Genre?) {
-        currentGenre.value = if (genre == Genre.ALL) null else genre
+    fun selectGenre(genre: Genre) {
+        _currentGenre.value = genre
     }
 }
