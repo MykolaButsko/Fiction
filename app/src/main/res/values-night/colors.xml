@@ -2,6 +2,7 @@
 <resources>
 
     <color name="button_background">#292929</color>
+    <color name="text_color_theme">#FFFFFF</color>
     <color name="theme_background">#121212</color>
     <color name="bottom_nav_background">#292929</color>
 
