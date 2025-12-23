@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingHorizontal="@dimen/margin_xs">
+    android:paddingHorizontal="@dimen/margin_xs"
+    android:paddingVertical="@dimen/margin_xs">
 
     <ImageView
         android:id="@+id/bookImg"
@@ -42,12 +43,10 @@
         android:layout_width="@dimen/icon_size"
         android:layout_height="@dimen/icon_size"
         android:layout_marginTop="@dimen/margin_s"
-        android:layout_marginBottom="@dimen/margin_s"
         android:clickable="true"
         android:focusable="true"
         android:contentDescription="@string/cd_favorite_toggle"
         android:src="@drawable/ic_favorite_border"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bookAuthor" />
 
