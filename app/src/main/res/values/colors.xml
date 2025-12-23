@@ -2,12 +2,12 @@
 <resources>
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
-    <color name="dark_scarlet">#560319</color>
     <color name="dark_gray">#292929</color>
     <color name="gray">#838383</color>
     <color name="red">#F00000</color>
 
-    <color name="button_background">#8C8C8C</color>
+    <color name="button_background">#CCCCCC</color>
+    <color name="text_color_theme">#000000</color>
     <color name="theme_background">#F5F5F5</color>
-    <color name="bottom_nav_background">#4B4B4B</color>
+    <color name="bottom_nav_background">#ABABAB</color>
 </resources>

@@ -1,12 +1,17 @@
 package com.example.fiction.viewmodel
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.fiction.data.model.Book
 import com.example.fiction.data.model.Genre
 import com.example.fiction.data.repository.BookRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.update
 import javax.inject.Inject
 
 @HiltViewModel
@@ -15,58 +20,45 @@ class BookViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _bookList = MutableStateFlow<List<Book>>(emptyList())
-    val bookList: StateFlow<List<Book>> = _bookList
+    private val _favoriteId = MutableStateFlow<Set<Int>>(mutableSetOf())
+    private val _currentGenre = MutableStateFlow(Genre.ALL)
+    val currentGenre: StateFlow<Genre> = _currentGenre
 
-    private val _favoriteListId = MutableStateFlow<MutableSet<Int>>(mutableSetOf())
-    private val favoriteListId: StateFlow<MutableSet<Int>> get() = _favoriteListId
+    val homeBooks: StateFlow<List<Book>> =
+        combine(_bookList, _favoriteId, _currentGenre) { books, favIds, genre ->
 
-    private val _favListBooks = MutableStateFlow<List<Book>>(emptyList())
-    val favListBooks: StateFlow<List<Book>> = _favListBooks
+            books
+                .filter { genre == Genre.ALL || it.genre == genre }
+                .map { book ->
+                    book.copy(isFavorite = favIds.contains(book.bookId))
+                }
+        }.stateIn(
+            viewModelScope,
+            SharingStarted.WhileSubscribed(5_000),
+            emptyList()
+        )
+
+    val libraryBooks = combine(_bookList, _favoriteId) { books, favIds ->
+        books
+            .filter { it.bookId in favIds }
+            .map { it.copy(isFavorite = true) }
+    }.stateIn(
+        viewModelScope,
+        SharingStarted.WhileSubscribed(5_000),
+        emptyList()
+    )
 
     fun loadBook() {
         _bookList.value = bookRepository.getBooks()
     }
 
-    private fun filterBookByGenre(genre: Genre) {
-        val filteredBooks = bookRepository.getBookByGenre(genre)
-        _bookList.value = filteredBooks
-    }
-
     fun toggleFavorite(bookId: Int) {
-        val currentFavorite = _favoriteListId.value
-        if (currentFavorite.contains(bookId)) {
-            currentFavorite.remove(bookId)
-        } else {
-            currentFavorite.add(bookId)
-        }
-        _favoriteListId.value = currentFavorite
-        updateFavoriteBookState(bookId)
-        filterFavBook()
-    }
-
-    private fun updateFavoriteBookState(id: Int) {
-        val currentList = _bookList.value
-        val book = currentList.firstOrNull { it.bookId == id } ?: return
-        val newState = !book.isFavorite
-
-        bookRepository.updateFavoriteBook(id, newState)
-
-        _bookList.value = bookRepository.getBooks()
-    }
-
-    private fun filterFavBook() {
-        bookList.value.let { allBooks ->
-            favoriteListId.value.let { favoriteIds ->
-                _favListBooks.value = allBooks.filter { it.bookId in favoriteIds }
-            }
+        _favoriteId.update { ids ->
+            if (ids.contains(bookId)) ids - bookId else ids + bookId
         }
     }
 
-    fun onGenreSelected(genre: Genre) {
-        if (genre == Genre.FICTION) {
-            loadBook()
-        } else {
-            filterBookByGenre(genre)
-        }
+    fun selectGenre(genre: Genre) {
+        _currentGenre.value = genre
     }
 }

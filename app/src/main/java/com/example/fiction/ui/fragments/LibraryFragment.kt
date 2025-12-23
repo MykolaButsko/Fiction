@@ -43,7 +43,7 @@ class LibraryFragment : BaseFragment<FragmentLibraryBinding>(
     private fun updateFavList() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                bookViewModel.favListBooks.collect { bookId ->
+                bookViewModel.libraryBooks.collect { bookId ->
                     bookAdapter.submitList(bookId)
                 }
             }

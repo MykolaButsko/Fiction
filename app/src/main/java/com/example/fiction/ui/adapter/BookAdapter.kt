@@ -1,5 +1,6 @@
 package com.example.fiction.ui.adapter
 
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
@@ -28,7 +29,18 @@ class BookAdapter(
 
             favoriteToggle.setImageResource(icon)
 
-            bookTitle.text = book.title
+            bookTitle.apply {
+                ellipsize = null
+                maxLines = Int.MAX_VALUE
+
+                text = book.title
+
+                post {
+                    maxLines = 1
+                    ellipsize = TextUtils.TruncateAt.END
+                }
+            }
+
             bookAuthor.text = book.author
 
             bookImg.setOnClickListener {

@@ -45,13 +45,24 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
         bookViewModel.loadBook()
 
         chooseGenreBook()
+        observeGenre()
     }
 
     private fun observeAndUpdateBooks() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                bookViewModel.bookList.collect { books ->
+                bookViewModel.homeBooks.collect { books ->
                     bookAdapter.submitList(books)
+                }
+            }
+        }
+    }
+
+    private fun observeGenre() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                bookViewModel.currentGenre.collect { genre ->
+                    binding.textViewAll.text = genre.getTitle(requireContext())
                 }
             }
         }
@@ -69,8 +80,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
                 val genre = Genre.fromKey(button.tag as? String)
                     ?: return@setOnClickListener
 
-                textViewFiction.setText(genre.titleRes)
-                bookViewModel.onGenreSelected(genre)
+                bookViewModel.selectGenre(genre)
             }
         }
     }

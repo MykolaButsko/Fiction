@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="@dimen/margin_xxl"
     android:paddingHorizontal="@dimen/margin_m">
 
     <TextView
@@ -11,7 +12,6 @@
         style="@style/TitleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_xxl"
         android:text="@string/topics"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,12 +20,20 @@
         android:id="@+id/categoriesContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_l"
+        android:layout_marginTop="@dimen/margin_m"
         app:flexDirection="row"
         app:flexWrap="wrap"
         app:justifyContent="flex_start"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topics">
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/CategoryButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_s"
+            android:tag="all"
+            android:text="@string/all" />
 
         <com.google.android.material.button.MaterialButton
             style="@style/CategoryButtonStyle"
@@ -62,12 +70,12 @@
     </com.google.android.flexbox.FlexboxLayout>
 
     <TextView
-        android:id="@+id/textViewFiction"
+        android:id="@+id/textViewAll"
         style="@style/TitleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_l"
-        android:text="@string/fiction"
+        android:layout_marginTop="@dimen/margin_m"
+        android:text="@string/all"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/categoriesContainer" />
 
@@ -75,12 +83,12 @@
         android:id="@+id/recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/margin_l"
+        android:layout_marginTop="@dimen/margin_m"
         android:contentDescription="@string/cd_books"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewFiction"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAll"
         tools:listitem="@layout/book_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
