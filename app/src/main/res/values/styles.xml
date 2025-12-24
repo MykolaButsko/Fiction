@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TitleText" parent="TextAppearance.Material3.TitleLarge">
+        <item name="fontFamily">@font/mulish_bold</item>
+        <item name="android:textSize">@dimen/text_title</item>
+        <item name="android:lineHeight">@dimen/line_height_body</item>
+    </style>
+
+    <style name="BodyLargeTextBold" parent="TextAppearance.Material3.BodyLarge">
+        <item name="fontFamily">@font/mulish_bold</item>
+        <item name="android:textSize">@dimen/text_body_large</item>
+        <item name="android:lineHeight">@dimen/line_height_body</item>
+    </style>
+
+    <style name="BodyLargeText" parent="TextAppearance.Material3.BodyLarge">
+        <item name="fontFamily">@font/mulish_regular</item>
+        <item name="android:textSize">@dimen/text_body_large</item>
+        <item name="android:lineHeight">@dimen/line_height_body</item>
+    </style>
+
+    <style name="BodyText" parent="TextAppearance.Material3.BodyMedium">
+        <item name="fontFamily">@font/mulish_regular</item>
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:lineHeight">@dimen/line_height_body</item>
+    </style>
+
+    <style name="CategoryButtonStyle" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/button_background</item>
+        <item name="android:height">@dimen/button_height</item>
+        <item name="fontFamily">@font/mulish_regular</item>
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:textColor">@color/text_color_theme</item>
+        <item name="android:lineHeight">@dimen/line_height_body</item>
+    </style>
+
+    <style name="Widget.App.BottomNavStyle" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:background">@color/bottom_nav_background</item>
+        <item name="itemIconSize">@dimen/icon_size_bottom_nav</item>
+        <item name="itemActiveIndicatorStyle">@android:color/transparent</item>
+        <item name="itemRippleColor">@android:color/transparent</item>
+        <item name="itemIconTint">@drawable/ic_item_selector</item>
+        <item name="labelVisibilityMode">unlabeled</item>
+    </style>
+
+</resources>

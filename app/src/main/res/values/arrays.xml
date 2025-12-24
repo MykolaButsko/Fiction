@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="book_titles">
+        <item>@string/book_the_good_guy</item>
+        <item>@string/book_norse_mythology</item>
+        <item>@string/book_futurama</item>
+        <item>@string/book_explore_your_creative</item>
+    </string-array>
+
+    <string-array name="book_authors">
+        <item>@string/author_the_good_guy</item>
+        <item>@string/author_norse_mythology</item>
+        <item>@string/author_futurama</item>
+        <item>@string/author_explore_your_creative</item>
+    </string-array>
+
+    <string-array name="book_descriptions">
+        <item>@string/book_description_the_good_guy</item>
+        <item>@string/book_description_norse_mythology</item>
+        <item>@string/book_description_futurama</item>
+        <item>@string/book_description_explore_your_creative</item>
+    </string-array>
+
+</resources>
