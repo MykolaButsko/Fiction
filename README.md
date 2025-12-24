@@ -1,5 +1,5 @@
 # Fiction 📚
-Fiction is an Android book application that allows users to browse books, read thei descriptions, add them to favorites, and filter them by genres. The project was created as a pet project to practice Android development.
+Fiction is an Android book application that allows users to browse books, read their descriptions, add them to favorites, and filter them by genres. The project was created as a pet project to practice Android development.
 ## Functionality
 
 ✅ Displays a list of books with support for opening a detailed screen containing book information.
@@ -18,7 +18,7 @@ Fiction is an Android book application that allows users to browse books, read t
 <br>
 ✅ Book lists are displayed using RecyclerView.
 <br>
-✅ Navigation is handled via the Navigation Components (NavGraph).
+✅ Navigation is handled using the Navigation Components.
 <br>
 ✅ Asynchronous operations are managed with Kotlin Coroutines.
 <br>
@@ -28,4 +28,4 @@ Fiction is an Android book application that allows users to browse books, read t
 <img src="https://github.com/user-attachments/assets/05005289-4915-4fa2-8ac1-041f76ff4f4e" alt="Screenshot" width="250"/>
 <img src="https://github.com/user-attachments/assets/215fe66f-49f1-4b12-956e-34890d7acdd5" alt="Screenshot" width="250"/>
 <br>
-<img src="https://github.com/user-attachments/assets/66bf3e96-dd8b-4169-b12b-576adba5eb20" alt="Screenshot" width="250"/>
+<img src="https://github.com/user-attachments/assets/bde2e7cc-25ae-4cbe-8a3a-83a59ea672cf" alt="Screenshot" width="250"/>
